@@ -1,4 +1,4 @@
-package com.afterwork365.sbb.controller;
+package afterwork.backend.controller;
 
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;

@@ -1,4 +1,5 @@
-package com.afterwork365.sbb.config; 
+package afterwork.backend.config;
+
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
