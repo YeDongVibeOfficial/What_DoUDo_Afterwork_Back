@@ -7,17 +7,16 @@ import lombok.Setter;
 @Getter
 @Setter
 public class PublicDataDto {
+    
+    private Long PL_Id;
     private String PL_Name;
     private String PL_Addr_Basic;
+    private String PL_Addr_Detail;
     private String PL_Img_URL;
+    private String PL_Number;
+    private Double PL_Map_X;
+    private Double PL_Map_y;
     private Double PL_Distance;
-
-    public PublicDataDto(String PL_Name, String PL_Addr_Basic, String PL_Img_URL, Double PL_Distance) {
-        this.PL_Name = PL_Name;
-        this.PL_Addr_Basic = PL_Addr_Basic;
-        this.PL_Img_URL = PL_Img_URL;
-        this.PL_Distance = PL_Distance;
-    }
 
     
 }
