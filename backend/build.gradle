@@ -29,9 +29,10 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf' // Thymeleaf 템플릿 엔진
 	implementation 'org.springframework.boot:spring-boot-starter-validation' // Bean Validation 지원
 	implementation 'org.springframework.boot:spring-boot-starter-web' // 웹 애플리케이션 개발
-
 	implementation 'org.springframework.boot:spring-boot-starter-jdbc' // JDBC 설정
 	implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:3.0.3' // MyBatis 사용
+	implementation 'org.springdoc:springdoc-openapi-starter-webmvc-ui:2.0.2' // Swagger API 문서화
+	
 	runtimeOnly 'com.h2database:h2' // H2 데이터베이스 사용
 
 	compileOnly 'org.projectlombok:lombok' // Lombok(자동 Getter/Setter, 생성자 지원)
@@ -40,8 +41,6 @@ dependencies {
 	annotationProcessor 'org.springframework.boot:spring-boot-configuration-processor' // Spring Boot 설정 자동 생성
 	testImplementation 'org.springframework.boot:spring-boot-starter-test' // 테스트 관련 설정
 	testRuntimeOnly 'org.junit.platform:junit-platform-launcher' // JUnit 실행기
-
-	implementation 'org.springdoc:springdoc-openapi-starter-webmvc-ui:2.0.2' // Swagger API 문서화
 }
 tasks.named('test') {
 	useJUnitPlatform()
