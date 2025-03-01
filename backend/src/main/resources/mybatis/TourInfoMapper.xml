@@ -1,0 +1,12 @@
+<mapper namespace="afterwork.backend.mapper.TourInfoMapper">
+    <!-- 데이터 삽입 -->
+    <insert id="insertTourInfo">
+        INSERT INTO tour_info (plcode, plTitle, plAddrBasic, plAddrDetail, plTel, plImg, plMapX, plMapY)
+        VALUES (#{plcode}, #{plTitle}, #{plAddrBasic}, #{plAddrDetail}, #{plTel}, #{plImg}, #{plMapX}, #{plMapY})
+    </insert>
+
+    <!-- 모든 데이터 조회 -->
+    <select id="getAllTourInfo" resultType="afterwork.backend.dto.TourDTO">
+        SELECT id, plcode, plTitle, plAddrBasic, plAddrDetail, plTel, plImg, plMapX, plMapY FROM tour_info
+    </select>
+</mapper>
