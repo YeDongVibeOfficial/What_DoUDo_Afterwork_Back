@@ -33,20 +33,24 @@ public class OpenApiController {
         try {
             String apiUrl = "https://apis.data.go.kr/B551011/KorService1/areaBasedList1?" +
                     "serviceKey=VVOmSStfN2wJSHEf%2BdtpJXmiBOUek6SBLCa3ue%2BfX1qCYUMmwRU13VFK6bcrNTm6XpOMTYs1Z77cRmRno%2BYqkg%3D%3D" +
-                    "&numOfRows=10" +
+                    "&numOfRows=1000" +
                     "&pageNo=1" +
                     "&MobileOS=ETC" +
                     "&MobileApp=AppTest" +
-                    "&_type=json";
+                    "&_type=json+" + 
+                    "&arrange=C"; // 수정일순으로 정렬하여 최근데이터 순으로 받기
 
             if (areaCode != null) {
                 apiUrl += "&areaCode=" + areaCode;
             }
 
+
+            //URL 객체 생성하여 API 요청
             URL url = new URL(apiUrl);
             HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
             urlConnection.setRequestMethod("GET");
 
+            //BufferedReader 사용하여 데이터 UTF-8로 받음 -> 한글때문ㅇ
             BufferedReader bufferedReader = new BufferedReader(
                     new InputStreamReader(urlConnection.getInputStream(), StandardCharsets.UTF_8));
 

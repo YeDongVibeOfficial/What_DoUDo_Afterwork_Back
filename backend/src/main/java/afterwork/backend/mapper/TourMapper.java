@@ -6,11 +6,23 @@ import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Options;
 import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.Update;
 
 import afterwork.backend.dto.TourDTO;
 
 @Mapper
-public interface TourMapper {  // 인터페이스로 변경
+public interface TourMapper {
+    //테이블 생성문제 
+    @Update("CREATE TABLE IF NOT EXISTS tour_info (" +
+                "id BIGINT AUTO_INCREMENT PRIMARY KEY," +
+                "plcode INT," + 
+                "plTitle VARCHAR(255)," +
+                "plAddrBasic VARCHAR(255)," +
+                "plAddrDetail VARCHAR(255)," +
+                "plTel VARCHAR(50)," +
+                "plImg VARCHAR(255)," +
+                "plMapX DOUBLE," +
+                " plMapY DOUBLE")
     // 데이터 삽입 (자동 증가하는 ID 사용)
     @Insert("INSERT INTO tour_info (plcode, plTitle, plAddrBasic, plAddrDetail, plTel, plImg, plMapX, plMapY) " +
             "VALUES (#{plcode}, #{plTitle}, #{plAddrBasic}, #{plAddrDetail}, #{plTel}, #{plImg}, #{plMapX}, #{plMapY})")
