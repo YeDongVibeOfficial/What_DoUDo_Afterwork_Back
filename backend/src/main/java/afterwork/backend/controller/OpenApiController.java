@@ -37,7 +37,7 @@ public class OpenApiController {
                     "&pageNo=1" +
                     "&MobileOS=ETC" +
                     "&MobileApp=AppTest" +
-                    "&_type=json+" + 
+                    "&_type=json" + 
                     "&arrange=C"; // 수정일순으로 정렬하여 최근데이터 순으로 받기
 
             if (areaCode != null) {
@@ -59,6 +59,8 @@ public class OpenApiController {
                 result.append(returnLine);
             }
             urlConnection.disconnect();
+
+            System.out.println("API 응답: " + result.toString());
 
             // JSON 파싱
             ObjectMapper objectMapper = new ObjectMapper();
