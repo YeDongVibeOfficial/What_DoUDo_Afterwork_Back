@@ -1,4 +1,5 @@
-<mapper namespace="afterwork.backend.mapper.TourInfoMapper">
+
+<mapper namespace="afterwork.backend.mapper.TourMapper">
     <!-- 데이터 삽입 -->
     <insert id="insertTourInfo">
         INSERT INTO tour_info (plcode, plTitle, plAddrBasic, plAddrDetail, plTel, plImg, plMapX, plMapY)
