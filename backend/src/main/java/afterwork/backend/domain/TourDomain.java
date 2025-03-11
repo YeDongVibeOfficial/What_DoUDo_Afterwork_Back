@@ -1,11 +1,11 @@
-package afterwork.backend.dto;
+package afterwork.backend.domain;
 
 import lombok.Getter;
 import lombok.Setter;
 
 @Getter
 @Setter
-public class TourDTO {
+public class TourDomain {
     //plkey
     private Long id;
     //지역코드

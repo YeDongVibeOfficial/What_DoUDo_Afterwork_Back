@@ -6,11 +6,7 @@ CREATE TABLE tour_info (
     plTitle VARCHAR(255) NOT Null,
     plAddrBasic VARCHAR(255) NOT Null,
     plAddrDetail VARCHAR(255),
-<<<<<<< HEAD
-    plTel VARCHAR(50000) NOT Null,
-=======
     plTel VARCHAR(50) NOT Null,
->>>>>>> origin/HEAD
     plImg VARCHAR(255) NOT Null,
     plMapX DOUBLE NOT Null,
     plMapY DOUBLE NOT Null
