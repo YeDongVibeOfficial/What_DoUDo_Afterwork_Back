@@ -67,19 +67,6 @@ public class OpenApiController {
             List<TourDTO> tourList = new ArrayList<>();
 
             for (JsonNode item : items) {
-                // 각 항목에 값이 없으면 건너뛰기
-                String title = item.path("title").asText("");
-                String addr1 = item.path("addr1").asText("");
-                String tel = item.path("tel").asText("");
-                String firstImage = item.path("firstimage").asText("");
-                double mapX = item.path("mapx").asDouble(Double.NaN);
-                double mapY = item.path("mapy").asDouble(Double.NaN);
-
-                // 필수 필드 중 하나라도 비어 있으면 건너뜀
-                if (title.isEmpty() || addr1.isEmpty() || firstImage.isEmpty() || tel.isEmpty() || Double.isNaN(mapX) || Double.isNaN(mapY)) {
-                    continue; // 빈 값이 있으면 건너뜀
-                }
-
                 TourDTO tourDTO = new TourDTO();
                 tourDTO.setPlcode(item.path("areacode").asInt());
                 tourDTO.setPlTitle(title);
