@@ -5,7 +5,7 @@ import java.util.List;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import afterwork.backend.dto.TourDTO;
+import afterwork.backend.domain.TourDomain;
 import afterwork.backend.mapper.TourMapper;
 
 @Service
@@ -17,11 +17,11 @@ public class TourService {
     }
 
     @Transactional
-    public void saveTourInfo(TourDTO tourDTO) {
+    public void saveTourInfo(TourDomain tourDTO) {
         tourMapper.insertTourInfo(tourDTO);
     }
 
-    public List<TourDTO> getAllTourInfo() {
+    public List<TourDomain> getAllTourInfo() {
         return tourMapper.getAllTourInfo();
     }
 }

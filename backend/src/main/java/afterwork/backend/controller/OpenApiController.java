@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-import afterwork.backend.dto.TourDTO;
+import afterwork.backend.domain.TourDomain;
 import afterwork.backend.service.TourService;
 
 @RestController
@@ -64,7 +64,7 @@ public class OpenApiController {
             JsonNode rootNode = objectMapper.readTree(result.toString());
             JsonNode items = rootNode.path("response").path("body").path("items").path("item");
 
-            List<TourDTO> tourList = new ArrayList<>();
+            List<TourDomain> tourList = new ArrayList<>();
 
             for (JsonNode item : items) {
                 // 각 항목에 값이 없으면 건너뛰기
@@ -85,7 +85,7 @@ public class OpenApiController {
                 }
 
 
-                TourDTO tourDTO = new TourDTO();
+                TourDomain tourDTO = new TourDomain();
                 tourDTO.setPlcode(item.path("areacode").asInt());
                 tourDTO.setPlTitle(title);
                 tourDTO.setPlAddrBasic(addr1);
@@ -99,7 +99,7 @@ public class OpenApiController {
             }
 
             // 변환된 데이터를 H2 DB에 저장
-            for (TourDTO tourDTO : tourList) {
+            for (TourDomain tourDTO : tourList) {
                 tourService.saveTourInfo(tourDTO);
             }
 

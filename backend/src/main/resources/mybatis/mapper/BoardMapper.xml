@@ -1,0 +1,9 @@
+<mapper namespace="afterwork.backend.mapper.BoardMapper">
+    <select id="boardCount" resultType="int">
+    SELECT count(boardId) AS cnt FROM tbl_board;
+    </select>
+
+    <select id="getBoardList" resultType="afterwork.backend.domain.BoardDomain">
+    SELECT * FROM tbl_board;
+    </select>
+</mapper>
