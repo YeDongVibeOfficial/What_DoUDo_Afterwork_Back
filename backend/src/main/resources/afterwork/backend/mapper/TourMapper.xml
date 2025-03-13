@@ -1,4 +1,4 @@
-
+<?xml version="1.0" encoding="UTF-8"?>
 <mapper namespace="afterwork.backend.mapper.TourMapper">
     <!-- 데이터 삽입 -->
     <insert id="insertTourInfo">
@@ -7,7 +7,7 @@
     </insert>
 
     <!-- 모든 데이터 조회 -->
-    <select id="getAllTourInfo" resultType="afterwork.backend.dto.TourDTO">
+    <select id="getAllTourInfo" resultMap="afterwork.backend.domain.TourDomain">
         SELECT id, plcode, plTitle, plAddrBasic, plAddrDetail, plTel, plImg, plMapX, plMapY FROM tour_info
     </select>
 </mapper>

@@ -1,6 +1,7 @@
-Drop TABLE IF EXISTS tour_info;
+-- Drop TABLE IF EXISTS tour_info;
+-- DROP TABLE IF EXISTS BOARD;
 
-CREATE TABLE tour_info (
+CREATE TABLE IF NOT EXISTS tour_info (
     id BIGINT AUTO_INCREMENT PRIMARY KEY,
     plcode INT,
     plTitle VARCHAR(255) NOT Null,
@@ -11,3 +12,11 @@ CREATE TABLE tour_info (
     plMapX DOUBLE NOT Null,
     plMapY DOUBLE NOT Null
 );
+
+CREATE TABLE IF NOT EXISTS BOARD(
+    boardId Long AUTO_INCREMENT PRIMARY KEY,
+    title VARCHAR (50) NOT Null,
+    content VARCHAR (50) NOT Null,
+    name VARCHAR (50) NOT Null
+)
+
