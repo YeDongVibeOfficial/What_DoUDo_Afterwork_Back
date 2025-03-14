@@ -84,18 +84,18 @@ public class OpenApiController {
                     continue;  // 50자 이상이면 저장하지 않고 건너뜀
                 }
 
+                TourDomain tourDomain = new TourDomain();
+                tourDomain.setPlcode(item.path("areacode").asInt());
+                tourDomain.setPlTitle(title);
+                tourDomain.setPlAddrBasic(addr1);
+                tourDomain.setPlAddrDetail(item.path("addr2").asText(""));
+                tourDomain.setPlTel(tel);
+                tourDomain.setPlImg(firstImage);
+                tourDomain.setPlMapX(mapX);
+                tourDomain.setPlMapY(mapY);
+                
+                tourList.add(tourDomain);
 
-                TourDomain tourDTO = new TourDomain();
-                tourDTO.setPlcode(item.path("areacode").asInt());
-                tourDTO.setPlTitle(title);
-                tourDTO.setPlAddrBasic(addr1);
-                tourDTO.setPlAddrDetail(item.path("addr2").asText(""));
-                tourDTO.setPlTel(tel);
-                tourDTO.setPlImg(firstImage);
-                tourDTO.setPlMapX(mapX);
-                tourDTO.setPlMapY(mapY);
-
-                tourList.add(tourDTO);
             }
 
             // 변환된 데이터를 H2 DB에 저장

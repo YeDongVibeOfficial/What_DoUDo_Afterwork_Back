@@ -12,6 +12,7 @@ import lombok.RequiredArgsConstructor;
 
 
 
+
 @Controller
 @RequestMapping("/board")
 @RequiredArgsConstructor
@@ -26,12 +27,13 @@ public class BoardController {
     @GetMapping("/test")
     public String test(Model model) {
         model.addAttribute("cnt", boardService.boardCount());
-        model.addAttribute("test", boardService.getList());
-
+        // model.addAttribute("test", boardService.getList());
         return "/board/hello";
-
     }
-    
 
- 
+    // @GetMapping("/main")
+    // public String main(Model model) {
+    //     model.addAttribute("list", boardService.getList());
+    //     return "/board/main";
+    // }
 }

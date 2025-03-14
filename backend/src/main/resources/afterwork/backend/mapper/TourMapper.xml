@@ -1,5 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
 <mapper namespace="afterwork.backend.mapper.TourMapper">
+
+    <!-- 결과 매핑 정의 (resultMap) 추가 -->
+    <resultMap id="TourDomainMap" type="afterwork.backend.domain.TourDomain">
+        <id property="plcode" column="plcode"/>
+        <result property="plTitle" column="plTitle"/>
+        <result property="plAddrBasic" column="plAddrBasic"/>
+        <result property="plAddrDetail" column="plAddrDetail"/>
+        <result property="plTel" column="plTel"/>
+        <result property="plImg" column="plImg"/>
+        <result property="plMapX" column="plMapX"/>
+        <result property="plMapY" column="plMapY"/>
+    </resultMap>
+
     <!-- 데이터 삽입 -->
     <insert id="insertTourInfo">
         INSERT INTO tour_info (plcode, plTitle, plAddrBasic, plAddrDetail, plTel, plImg, plMapX, plMapY)
@@ -7,7 +22,8 @@
     </insert>
 
     <!-- 모든 데이터 조회 -->
-    <select id="getAllTourInfo" resultMap="afterwork.backend.domain.TourDomain">
+    <select id="getAllTourInfo" resultMap="TourDomainMap">
         SELECT id, plcode, plTitle, plAddrBasic, plAddrDetail, plTel, plImg, plMapX, plMapY FROM tour_info
     </select>
+
 </mapper>
