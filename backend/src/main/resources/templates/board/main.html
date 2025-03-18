@@ -18,10 +18,10 @@
         <tbody>
             <!-- 데이터 출력 -->
             <tr th:each="list : ${list}">
-                <td th:text=[[${list.boardId}]]></td>
-                <td th:text=[[${list.name}]]></td>
-                <td th:text=[[${list.title}]]></td>
-                <td th:text=[[${list.read}]]></td>
+                <td>[[${list.boardId}]]</td>
+                <td>[[${list.name}]]</td>
+                <td>[[${list.title}]]</td>
+                <td>[[${list.read}]]</td>
             </tr>
         </tbody>
     </table>

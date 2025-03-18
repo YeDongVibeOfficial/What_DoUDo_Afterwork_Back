@@ -10,5 +10,8 @@
 <select id="getList" resultType="afterwork.backend.domain.BoardDomain">
     SELECT * FROM board
 </select>
+<select id="getBoard" parameterType="Long" resultType="afterwork.backend.domain.BoardDomain">
+  SELECT * FROM board where boardId=#{boardId};
+</select>
 
 </mapper>

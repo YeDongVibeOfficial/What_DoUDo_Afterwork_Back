@@ -17,6 +17,9 @@ public class BoardService {
     private final BoardMapper boardMapper;
     
     public int boardCount() {return boardMapper.boardCount();}
+
     public List<BoardDomain> getList() {return boardMapper.getList();}
+
+    public BoardDomain getBoard(Long boardId) {return boardMapper.getBoard(boardId);}
 
 }
