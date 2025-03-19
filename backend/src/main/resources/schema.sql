@@ -18,5 +18,16 @@ CREATE TABLE IF NOT EXISTS BOARD(
     title VARCHAR (50) NOT Null,
     content VARCHAR (50) NOT Null,
     name VARCHAR (50) NOT Null
-)
+);
 
+CREATE TABLE IF NOT EXISTS USER (
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    login_id VARCHAR(255) NOT NULL,
+    password VARCHAR(255),
+    name VARCHAR(255),
+    gender CHAR(1),
+    birthday DATE,
+    delete_yn BOOLEAN DEFAULT FALSE,
+    created_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    modified_date TIMESTAMP
+);
