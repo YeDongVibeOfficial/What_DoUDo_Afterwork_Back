@@ -32,11 +32,11 @@ public interface UserMapper {
      */
     void deleteById(Long id);
 
-    /**
-     * 회원 수 카운팅 (ID 중복 체크)
-     * @param loginId - UK
-     * @return 회원 수
-     */
-    int countByLoginId(String loginId);
+    // /**
+    //  * 회원 수 카운팅 (ID 중복 체크)
+    //  * @param loginId - UK
+    //  * @return 회원 수
+    //  */
+    // int countByLoginId(String loginId);
 
 }

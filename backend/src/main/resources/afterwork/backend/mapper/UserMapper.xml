@@ -12,9 +12,7 @@
         , name
         , gender
         , birthday
-        , delete_yn
         , created_date
-        , modified_date
     </sql>
 
     <!-- 회원 정보 저장 (회원가입) -->
@@ -41,8 +39,7 @@
         FROM
             USER
         WHERE
-            delete_yn = FALSE
-            AND login_id = #{value}
+            login_id = #{value}
     </select>
 
     <!-- 회원 정보 수정 -->
@@ -62,14 +59,12 @@
 
     <!-- 회원 정보 삭제 (회원 탈퇴) -->
     <delete id="deleteById" parameterType="long">
-        UPDATE USER
-        SET
-            delete_yn = TRUE
-        WHERE
-            id = #{id}
+        DELETE FROM USER
+        WHERE id = #{id}
     </delete>
 
-    <!-- 회원 수 카운팅 (ID 중복 체크) -->
+
+    <!-- 회원 수 카운팅 (ID 중복 체크)
     <select id="countByLoginId" parameterType="string" resultType="int">
         SELECT
             COUNT(*)
@@ -77,6 +72,6 @@
             USER
         WHERE
             login_id = #{value}
-    </select>
+    </select> -->
 
 </mapper>

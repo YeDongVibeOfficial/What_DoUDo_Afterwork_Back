@@ -14,9 +14,9 @@ public class UserResponse {
     private String name;                   // 이름
     private Gender gender;                 // 성별
     private LocalDate birthday;            // 생년월일
-    private Boolean deleteYn;              // 삭제 여부
+    // private Boolean deleteYn;              // 삭제 여부
     private LocalDateTime createdDate;     // 생성일시
-    private LocalDateTime modifiedDate;    // 최종 수정일시
+    // private LocalDateTime modifiedDate;    // 최종 수정일시
 
     public void clearPassword() {
         this.password = "";
