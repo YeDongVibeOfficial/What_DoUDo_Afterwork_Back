@@ -4,74 +4,13 @@
 
 <mapper namespace="afterwork.backend.mapper.UserMapper">
 
-    <!-- USER 테이블 전체 컬럼 -->
-    <sql id="memberColumns">
-          id
-        , login_id
-        , password
-        , name
-        , gender
-        , birthday
-        , created_date
-    </sql>
-
-    <!-- 회원 정보 저장 (회원가입) -->
-    <insert id="save" parameterType="afterwork.backend.model.UserRequest" useGeneratedKeys="true" keyProperty="id">
-        INSERT INTO USER (
-            <include refid="memberColumns" />
-        ) VALUES (
-              #{id}
-            , #{loginId}
-            , #{password}
-            , #{name}
-            , #{gender}
-            , #{birthday}
-            , FALSE
-            , CURRENT_TIMESTAMP
-            , NULL
-        )
+    <insert id="insertUser">
+        INSERT INTO USERS (login_id, password, name, gender, birthday, created_date)
+        VALUES (#{loginId}, #{password}, #{name}, #{gender}, #{birthday}, NOW());
     </insert>
 
-    <!-- 회원 상세정보 조회 -->
-    <select id="findByLoginId" parameterType="string" resultType="afterwork.backend.model.UserResponse">
-        SELECT
-            <include refid="memberColumns" />
-        FROM
-            USER
-        WHERE
-            login_id = #{value}
+    <select id="findByLoginId" resultType="afterwork.backend.domain.UserDomain">
+        SELECT * FROM USERS WHERE login_id = #{loginId}
     </select>
-
-    <!-- 회원 정보 수정 -->
-    <update id="update" parameterType="afterwork.backend.model.UserRequest">
-        UPDATE USER
-        SET
-              modified_date = CURRENT_TIMESTAMP
-            , name = #{name}
-            , gender = #{gender}
-            , birthday = #{birthday}
-            <if test="password != null and password != ''">
-            , password = #{password}
-            </if>
-        WHERE
-            id = #{id}
-    </update>
-
-    <!-- 회원 정보 삭제 (회원 탈퇴) -->
-    <delete id="deleteById" parameterType="long">
-        DELETE FROM USER
-        WHERE id = #{id}
-    </delete>
-
-
-    <!-- 회원 수 카운팅 (ID 중복 체크)
-    <select id="countByLoginId" parameterType="string" resultType="int">
-        SELECT
-            COUNT(*)
-        FROM
-            USER
-        WHERE
-            login_id = #{value}
-    </select> -->
 
 </mapper>

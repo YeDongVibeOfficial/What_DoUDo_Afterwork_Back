@@ -6,14 +6,16 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.thymeleaf.util.StringUtils;
 
 import lombok.AccessLevel;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
+@AllArgsConstructor
 public class UserRequest {
 
-    private Long id;                // 회원 번호 (PK)
+    // private Long id;                // 회원 번호 (PK)
     private String loginId;         // 로그인 ID
     private String password;        // 비밀번호
     private String name;            // 이름

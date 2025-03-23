@@ -4,130 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>로그인</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            background-color: #f4f4f4;
-            margin: 0;
-        }
-        .container {
-            background: white;
-            padding: 20px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            border-radius: 8px;
-            width: 300px;
-            text-align: center;
-        }
-        input, button {
-            width: 100%;
-            padding: 10px;
-            margin: 10px 0;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-        }
-        button {
-            background: #007BFF;
-            color: white;
-            border: none;
-            cursor: pointer;
-        }
-        button:hover {
-            background: #0056b3;
-        }
-        .signup_btn {
-            background: #28a745;
-        }
-        .signup_btn:hover {
-            background: #218838;
-        }
-        .popup {
-            display: none;
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            background: white;
-            padding: 20px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            border-radius: 8px;
-        }
-        .close-btn {
-            background: #dc3545;
-        }
-    </style>
 </head>
 <body>
-    <div class="container" id="loginBox">
-        <h2>로그인</h2>
-        <input type="text" id="loginId" placeholder="아이디">
-        <input type="password" id="password" placeholder="비밀번호">
-        <button onclick="login()">로그인</button>
-        <button class="signup_btn" onclick="openSignupPopup()">회원가입</button>
-    </div>
-    
-    <div class="popup" id="signupPopup">
-        <h3>회원가입</h3>
-        <input type="text" id="signupId" placeholder="아이디">
-        <input type="password" id="signupPassword" placeholder="비밀번호">
-        <input type="password" id="signupPasswordCheck" placeholder="비밀번호 재입력">
-        <input type="text" id="signupName" placeholder="이름">
-        <input type="number" id="signupBirthday" placeholder="생년월일 (YYYYMMDD)">
-        <button onclick="saveMember()">가입</button>
-        <button class="close-btn" onclick="closeSignupPopup()">취소</button>
-    </div>
-    
-    <script>
-        let users = [];
-        
-        function openSignupPopup() {
-            document.getElementById('signupPopup').style.display = 'block';
-        }
-        function closeSignupPopup() {
-            document.getElementById('signupPopup').style.display = 'none';
-        }
-        
-        function login() {
-            const loginId = document.getElementById('loginId').value;
-            const password = document.getElementById('password').value;
-            
-            const user = users.find(user => user.id === loginId && user.password === password);
-            if (user) {
-                alert(`환영합니다, ${user.name}님!`);
-            } else {
-                alert('아이디 또는 비밀번호가 잘못되었습니다.');
-            }
-        }
-        
-        function saveMember() {
-            const id = document.getElementById('signupId').value;
-            const password = document.getElementById('signupPassword').value;
-            const passwordCheck = document.getElementById('signupPasswordCheck').value;
-            const name = document.getElementById('signupName').value;
-            const birthday = document.getElementById('signupBirthday').value;
-            
-            if (!id || !password || !passwordCheck || !name || !birthday) {
-                alert('모든 필드를 입력해주세요.');
-                return;
-            }
-            
-            if (password !== passwordCheck) {
-                alert('비밀번호가 일치하지 않습니다.');
-                return;
-            }
-            
-            if (users.some(user => user.id === id)) {
-                alert('이미 존재하는 아이디입니다.');
-                return;
-            }
-            
-            users.push({ id, password, name, birthday });
-            alert('회원가입이 완료되었습니다!');
-            closeSignupPopup();
-        }
-    </script>
+    <h2>로그인</h2>
+    <form action="/user/login" method="post">
+        <label>아이디: <input type="text" name="loginId" required></label><br>
+        <label>비밀번호: <input type="password" name="password" required></label><br>
+        <button type="submit">로그인</button>
+    </form>
+    <a href="/user/register">회원가입</a>
 </body>
 </html>

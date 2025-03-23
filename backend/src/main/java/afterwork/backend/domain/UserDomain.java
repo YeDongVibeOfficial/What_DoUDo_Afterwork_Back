@@ -1,6 +1,7 @@
 package afterwork.backend.domain;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -13,10 +14,10 @@ import lombok.Setter;
 @AllArgsConstructor
 public class UserDomain {
     private Long id;
-    private String userId;
+    private String loginId;
     private String password;
     private String name;
-    private String gender;
+    private char gender;
     private LocalDate birthday;
-    private LocalDate createDate;
+    private LocalDateTime createdDate;
 }
