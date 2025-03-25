@@ -14,6 +14,10 @@ public class UserService {
     private UserMapper userMapper;
 
     public void registerUser(UserDomain user) {
+        int count = userMapper.countByLoginId(user.getLoginId());
+        if (count > 0) {
+            throw new IllegalArgumentException("이미 사용 중인 아이디입니다.");
+        }
         userMapper.insertUser(user);
     }
 

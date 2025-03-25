@@ -20,5 +20,7 @@
         <label>생년월일: <input type="date" name="birthday" required></label><br>
         <button type="submit">가입하기</button>
     </form>
+    <p th:if="${error}" style="color:red;">[${error}]</p> <!-- 에러 메시지 표시 -->
+    <a href="/user/login">로그인</a>
 </body>
 </html>

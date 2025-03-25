@@ -18,7 +18,7 @@ import jakarta.servlet.http.HttpSession;
 @Controller
 @RequestMapping("/user")
 public class UserController {
-    
+
     @Autowired
     private UserService userService;
 
@@ -28,9 +28,14 @@ public class UserController {
     }
 
     @PostMapping("/register")
-    public String registerUser(@ModelAttribute UserDomain user) {
-        userService.registerUser(user);
-        return "redirect:/user/login";
+    public String registerUser(@ModelAttribute UserDomain user, Model model) {
+        try {
+            userService.registerUser(user);
+            return "redirect:/user/login";
+        } catch (IllegalArgumentException e) {
+            model.addAttribute("error", "존재하는 아이디입니다.");  // 에러 메시지 전달
+            return "users/register";
+        }
     }
 
     @GetMapping("/login")

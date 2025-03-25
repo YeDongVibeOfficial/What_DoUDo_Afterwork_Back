@@ -10,4 +10,5 @@ import afterwork.backend.domain.UserDomain;
 public interface UserMapper {
     void insertUser(UserDomain user);
     UserDomain findByLoginId(@Param("loginId") String loginId);
+    int countByLoginId(@Param("loginId") String loginId); 
 }

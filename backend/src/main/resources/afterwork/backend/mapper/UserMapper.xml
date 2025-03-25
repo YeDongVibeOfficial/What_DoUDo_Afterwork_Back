@@ -13,4 +13,8 @@
         SELECT * FROM USERS WHERE login_id = #{loginId}
     </select>
 
+    <select id="countByLoginId" resultType="int">
+        SELECT COUNT(*) FROM USERS WHERE login_id = #{loginId}
+    </select>
+
 </mapper>
