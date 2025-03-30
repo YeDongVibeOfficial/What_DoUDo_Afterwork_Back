@@ -16,17 +16,17 @@ import lombok.RequiredArgsConstructor;
 public class BoardController {
     private final  BoardService boardService;
     
-    @GetMapping("/hello")
-    public String Hello () {
-        return "/board/hello";
-    }
+    // @GetMapping("/hello")
+    // public String Hello () {
+    //     return "/board/hello";
+    // }
     
-    @GetMapping("/test")
-    public String test(Model model) {
-        model.addAttribute("cnt", boardService.boardCount());
-        // model.addAttribute("test", boardService.getList());
-        return "/board/hello";
-    }
+    // @GetMapping("/test")
+    // public String test(Model model) {
+    //     model.addAttribute("cnt", boardService.boardCount());
+    //     // model.addAttribute("test", boardService.getList());
+    //     return "/board/hello";
+    // }
 
     @GetMapping("/main")
     public String main(Model model) {

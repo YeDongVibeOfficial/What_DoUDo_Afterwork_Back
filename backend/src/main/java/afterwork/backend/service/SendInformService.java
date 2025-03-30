@@ -15,7 +15,13 @@ public class SendInformService {
         this.sendInformMapper = sendInformMapper;
     }
 
+    // public List<SendInformDomain> getAllSendInform() {
+    //     return sendInformMapper.getAllSendInform();
+    // }
     public List<SendInformDomain> getAllSendInform() {
-        return sendInformMapper.getAllSendInform();
+        List<SendInformDomain> sendInformList = sendInformMapper.getAllSendInform();
+        System.out.println("Fetched SendInform List: " + sendInformList);  // 로그 출력
+        return sendInformList;
     }
+    
 }
