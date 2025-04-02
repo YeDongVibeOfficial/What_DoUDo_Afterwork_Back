@@ -20,7 +20,6 @@ public class SendInformService {
     // }
     public List<SendInformDomain> getAllSendInform() {
         List<SendInformDomain> sendInformList = sendInformMapper.getAllSendInform();
-        System.out.println("Fetched SendInform List: " + sendInformList);  // 로그 출력
         return sendInformList;
     }
     

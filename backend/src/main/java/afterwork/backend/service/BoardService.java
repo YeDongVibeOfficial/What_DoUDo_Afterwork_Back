@@ -18,8 +18,20 @@ public class BoardService {
     
     public int boardCount() {return boardMapper.boardCount();}
 
-    public List<BoardDomain> getList() {return boardMapper.getList();}
+    // public List<BoardDomain> getList() {return boardMapper.getList();}
+
+
+    public List<BoardDomain> getList() {
+        List<BoardDomain> list = boardMapper.getList();
+        System.out.println("Board List: " + list);  // 로그 출력
+        return list;
+    }
 
     public BoardDomain getBoard(Long boardId) {return boardMapper.getBoard(boardId);}
+
+    public List<BoardDomain> getAllSendBoard() {
+        List<BoardDomain> sendBoardList = boardMapper.getList();
+        return sendBoardList;
+    }
 
 }

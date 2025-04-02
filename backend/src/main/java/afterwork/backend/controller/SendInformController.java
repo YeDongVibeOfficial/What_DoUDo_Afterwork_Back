@@ -20,14 +20,9 @@ public class SendInformController {
         this.sendInformService = sendInformService;
     }
 
-    // @GetMapping("/list")
-    // public List<SendInformDomain> getSendInformList() {
-    //     return sendInformService.getAllSendInform();
-    // }
     @GetMapping("/list")
     public ResponseEntity<SendInformResponse> getSendInformList() {
         List<SendInformDomain> sendInformList = sendInformService.getAllSendInform();
-        System.out.println("Fetched Data: " + sendInformList);
         SendInformResponse response = new SendInformResponse("success", sendInformList);
         return ResponseEntity.ok(response);
     }
