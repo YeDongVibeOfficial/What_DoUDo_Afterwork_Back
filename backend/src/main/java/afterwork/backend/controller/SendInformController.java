@@ -22,8 +22,13 @@ public class SendInformController {
 
     @GetMapping("/list")
     public ResponseEntity<SendInformResponse> getSendInformList() {
-        List<SendInformDomain> sendInformList = sendInformService.getAllSendInform();
-        SendInformResponse response = new SendInformResponse("success", sendInformList);
-        return ResponseEntity.ok(response);
+        try {
+            List<SendInformDomain> sendInformList = sendInformService.getAllSendInform();
+            SendInformResponse response = new SendInformResponse("success", sendInformList);
+            return ResponseEntity.ok(response);
+        } catch (Exception e) {
+                return ResponseEntity.internalServerError()
+                .body(new SendInformResponse("fail" + e.getMessage(), null));
+        }
     }
 }

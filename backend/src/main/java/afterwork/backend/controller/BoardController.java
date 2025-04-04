@@ -3,11 +3,13 @@ package afterwork.backend.controller;
 
 import java.util.List;
 
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import afterwork.backend.domain.BoardDomain;
+import afterwork.backend.model.SendBoardResponse;
 import afterwork.backend.service.BoardService;
 import lombok.RequiredArgsConstructor;
 
@@ -43,15 +45,13 @@ public class BoardController {
     //     return "/board/view";
     // }
     @GetMapping("/all")
-    public List<BoardDomain> all() {
-            return boardService.getList();  // JSON 형식으로 반환
+    public ResponseEntity<SendBoardResponse> getSendBoardList() {
+        try {
+            List<BoardDomain> sendBoardList = boardService.getList();
+            return ResponseEntity.ok(new SendBoardResponse("success", sendBoardList));
+        } catch (Exception e) {
+            return ResponseEntity.internalServerError()
+                .body(new SendBoardResponse("fail" + e.getMessage(), null));
         }
-    // @GetMapping("/all")
-    // public ResponseEntity<SendBoardResponse> getSendBoardList() {
-    //     List<BoardDomain> sendBoardList = boardService.getAllSendBoard();
-    //     SendBoardResponse response = new SendBoardResponse("success", sendBoardList);
-    //     return ResponseEntity.ok(response);
-    // }
-    
-
+    }
 }

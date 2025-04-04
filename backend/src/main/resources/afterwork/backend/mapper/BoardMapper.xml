@@ -4,19 +4,16 @@
 
 <mapper namespace="afterwork.backend.mapper.BoardMapper">
 
-<select id="boardCount" resultType="int">
-    SELECT COUNT(*) AS cnt FROM BOARD
-</select>
-<select id="getList" resultType="afterwork.backend.domain.BoardDomain">
-    SELECT * FROM BOARD
-</select>
-<select id="getBoard" parameterType="java.lang.Long" resultType="afterwork.backend.domain.BoardDomain">
-    SELECT * FROM BOARD WHERE boardId=#{boardId};
-</select>
+    <select id="boardCount" resultType="int">
+        SELECT COUNT(*) AS cnt FROM BOARD;
+    </select>
 
-<select id="getAllSendBoard" resultType="afterwork.backend.domain.BoardDomain">
-    SELECT * FROM BOARD
-</select>
+    <select id="getList" resultType="afterwork.backend.domain.BoardDomain">
+        SELECT * FROM BOARD;
+    </select>
 
+    <select id="getBoard" parameterType="java.lang.Long" resultType="afterwork.backend.domain.BoardDomain">
+        SELECT * FROM BOARD WHERE BOARD_ID=#{boardId};
+    </select>
 
 </mapper>
